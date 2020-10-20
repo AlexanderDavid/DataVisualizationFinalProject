@@ -1,1 +1,255 @@
-/* CSS! */
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700, 900");
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #FFF;
+  font-family: "Roboto", sans-serif;
+  color: #13171b;
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-bar, .bottom-bar {
+  display: block;
+  width: 423px;
+  height: 15px;
+  position: absolute;
+  left: -5px;
+}
+
+.top-bar {
+  top: 65px;
+}
+
+.bottom-bar {
+  bottom: 65px;
+}
+
+.twitter {
+  position: relative;
+  background-color: #FFF;
+  height: 100vh;
+  width: 1200px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.twitter .app {
+  position: relative;
+  height: 100%;
+}
+
+.iphone-buttons .on-off, .iphone-buttons .up, .iphone-buttons .down, .iphone-buttons .sleep {
+  display: block;
+  background: #CCC;
+  position: absolute;
+  border-radius: 2px 0px 0px 2px;
+}
+.iphone-buttons .on-off {
+  height: 40px;
+  width: 3px;
+  top: 100px;
+  left: -8px;
+}
+.iphone-buttons .up, .iphone-buttons .down, .iphone-buttons .sleep {
+  height: 60px;
+  width: 5px;
+  left: -10px;
+}
+.iphone-buttons .up {
+  top: 170px;
+}
+.iphone-buttons .down {
+  top: 250px;
+}
+.iphone-buttons .sleep {
+  left: auto;
+  right: -10px;
+  top: 170px;
+  border-radius: 0px 2px 2px 0px;
+}
+
+.phone-header {
+  height: 50px;
+  width: 1200px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 99;
+  text-align: center;
+}
+.phone-header p {
+  font-weight: 900;
+  font-size: 19px;
+  padding-top: 11px;
+}
+.phone-header .img-1 {
+  max-width: 35px;
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  border-radius: 99px;
+}
+.phone-header .img-2 {
+  max-width: 30px;
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  cursor: pointer;
+}
+.phone-header .fa-times {
+  color: #1ca0f3;
+  font-size: 25px;
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  cursor: pointer;
+}
+.phone-header .button.is-primary {
+  background-color: #1ca0f3;
+  border-radius: 12px;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+}
+.phone-header .cancel-cta,
+.phone-header .next-cta {
+  position: absolute;
+  top: 12px;
+  color: #209cee;
+  font-weight: bold;
+  cursor: pointer;
+}
+.phone-header .cancel-cta {
+  left: 10px;
+}
+.phone-header .next-cta {
+  right: 10px;
+}
+
+.feed {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-right: -15px;
+}
+.feed .tweet {
+  padding: 10px;
+  border-bottom: 1px solid #e6ecf1;
+}
+.feed .tweet .user-image {
+  border-radius: 99px;
+}
+.feed .tweet .verified-icon {
+  width: 15px;
+}
+.feed .tweet p {
+  font-size: 16px;
+}
+.feed .tweet small {
+  color: #657685;
+}
+.feed .tweet .description .highlighted {
+  color: #1ca0f3;
+}
+.feed .tweet .tweet-image img {
+  border-radius: 10px;
+  padding-bottom: 5px;
+}
+.feed .tweet .level-left .level-item {
+  margin-right: 3rem;
+  color: #657685;
+  cursor: initial;
+}
+.feed .tweet .level-left .level-item.heart {
+  cursor: pointer;
+  color: #1ca0f3;
+}
+.feed .tweet .level-left p {
+  padding-left: 4px;
+  font-size: 13px;
+  color: #1ca0f3;
+}
+.feed .tweet .level-left .fa-heart.fas {
+  color: #e0245e;
+}
+.feed .tweet .level-left p.bold {
+  color: #e0245e;
+}
+.feed .tweet:last-of-type {
+  margin-bottom: 85px;
+}
+
+.details {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+.details li {
+  font-size: 0.8rem;
+}
+.details li span {
+  font-weight: bold;
+}
+
+.footer-contact {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.footer-contact .fa-twitter {
+  color: #209cee;
+  font-size: 2rem;
+}
+.footer-contact .fa-twitter:hover {
+  color: #1496ed;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+@media (max-width: 520px) {
+  #app {
+    height: 100% !important;
+    padding-top: 0 !important;
+  }
+
+  .app__phone,
+.app__phone__scroll__cover {
+    height: 100%;
+    width: 100%;
+  }
+
+  .phone-header,
+.phone-footer {
+    width: 100%;
+  }
+}
+@media (max-width: 1216px) and (max-height: 520px) {
+  .iphone {
+    transform: scale(0.5);
+  }
+}
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

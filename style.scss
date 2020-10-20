@@ -1,0 +1,292 @@
+$small: 520px;
+$medium: 768px;
+$large: 1216px;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700, 900');
+
+$secondaryColor: #657685;
+$borderColor: #e6ecf1;
+$redColor: #e0245e;
+$blueColor: #1ca0f3;
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #FFF;
+  font-family: 'Roboto', sans-serif;
+  color: #13171b;
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-bar, .bottom-bar {
+  display: block;
+  width: 423px;
+  height: 15px;
+  position: absolute;
+  left: -5px;
+}
+.top-bar {
+  top: 65px;
+}
+
+.bottom-bar {
+  bottom: 65px;
+}
+
+.twitter {
+  position: relative;
+  background-color: #FFF;
+  height: 100vh;
+  width: 1200px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.1);
+
+  .app {
+    position: relative;
+    height: 100%;
+  }
+
+}
+
+.iphone-buttons {
+  .on-off, .up, .down, .sleep {
+    display: block;
+    background: #CCC;
+    position: absolute;
+    border-radius: 2px 0px 0px 2px;
+  }
+  .on-off {
+    height: 40px;
+    width: 3px;
+    top: 100px;
+    left: -8px;
+  }
+  
+  .up, .down, .sleep {
+    height: 60px;
+    width: 5px;
+    left: -10px;
+  }
+  
+  .up {
+    top: 170px;
+  }
+  
+  .down {
+    top: 250px;
+  }
+  
+  .sleep {
+    left: auto;
+    right: -10px;
+    top: 170px;    
+    border-radius: 0px 2px 2px 0px;
+  }
+}
+
+
+.phone-header {
+  height: 50px;
+  width: 1200px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 99;
+  text-align: center;
+
+  p {
+    font-weight: 900;
+    font-size: 19px;
+    padding-top: 11px;
+  }
+  
+  .img-1 {
+    max-width: 35px;
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    border-radius: 99px;
+  }
+
+  .img-2 {
+    max-width: 30px;
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .fa-times {
+    color: #1ca0f3;
+    font-size: 25px;
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    cursor: pointer;
+  }
+  
+  .button.is-primary {
+    background-color: $blueColor;
+    border-radius: 12px;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+  }
+
+  .cancel-cta,
+  .next-cta {
+    position: absolute;
+    top: 12px;
+    color: #209cee;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .cancel-cta {
+    left: 10px;
+  }
+
+  .next-cta {
+    right: 10px;
+  }
+}
+
+.feed {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-right: -15px;
+  
+  .tweet {
+    padding: 10px;
+    border-bottom: 1px solid $borderColor;
+
+    .user-image {
+      border-radius: 99px;
+    }
+    
+    .verified-icon {
+      width: 15px;  
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    small {
+      color: $secondaryColor;
+    }
+    
+    .description .highlighted {
+      color: $blueColor;      
+    }
+
+    .tweet-image img {
+      border-radius: 10px;
+      padding-bottom: 5px;
+    }
+
+    .level-left .level-item {
+      margin-right: 3rem;
+      color: $secondaryColor;
+      cursor: initial;
+    }
+  
+    .level-left .level-item.heart {
+      cursor: pointer;
+      color: $blueColor;
+    }
+
+    .level-left p {
+      padding-left: 4px;
+      font-size: 13px;
+      color: $blueColor;
+    }
+
+    .level-left .fa-heart.fas {
+      color: $redColor;
+    }
+
+    .level-left p.bold {
+      color: $redColor;
+    }
+  }
+  
+  .tweet:last-of-type {
+    margin-bottom: 85px;
+  }
+}
+
+
+.details {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  li {
+    font-size: 0.8rem;
+    span {
+      font-weight: bold;
+    }
+  }
+}
+
+.footer-contact {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  .fa-twitter {
+    color: #209cee;
+    font-size: 2.0rem;
+    &:hover {
+      color: #1496ed;
+    }
+  }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0
+}
+
+// Media Queries
+@media(max-width: $small) {
+  #app {
+    height: 100% !important;
+    padding-top: 0 !important;
+  }
+
+  .app__phone,
+  .app__phone__scroll__cover {
+    height: 100%;
+    width: 100%;
+  }
+
+  .phone-header,
+  .phone-footer {
+    width: 100%;
+  }
+}
+
+@media(max-width: $large) and (max-height: $small) {
+  .iphone {
+    transform: scale(.5);
+  }
+}
+
+@keyframes blink {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
