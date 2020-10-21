@@ -15,7 +15,7 @@ const tweets = [
     handle: '@ProbablyAlexDay',
     verified: true,
     timeLapsed: '7m',
-    description: 'DATASET DESCRIPTION',
+    description: 'We are using the Twitter15 <a href="#1">[1]</a> and Twitter16 <a href="#2">[2]</a> dataset as released by Ma et al. <a href="#3">[3]</a>. This dataset contains 2311 different tweet trees each centered on some root tweet with an average of 410 nodes and 415 edges. Each edges represents some interaction with the tweet via retweet or quote retweet and contains some value representing the time elapsed between the child and parent tweet. This dataset was created in order to perform machine learning in order to classify tweets as rumors or truth.',
     likes: 21,
     upVoted: false
    },
@@ -49,6 +49,16 @@ const tweets = [
     likes: 486,
     upVoted: false
    },
+   {
+    name: 'Alex Day',
+    userImage: 'https://pbs.twimg.com/profile_images/1174730764375789573/LbaHHQnu_400x400.jpg',
+    handle: '@ProbablyAlexDay',
+    verified: true,
+    timeLapsed: '33m',
+    description: '<strong>References</strong><br><a id="1">[1]</a> Liu, Xiaomo, et al. "Real-time rumor debunking on twitter." Proceedings of the 24th ACM International on Conference on Information and Knowledge Management. 2015.<br><a id="2">[2]</a> Ma, Jing, et al. "Detecting rumors from microblogs with recurrent neural networks." 25th International Joint Conference on Artificial Intelligence, IJCAI 2016. International Joint Conferences on Artificial Intelligence, 2016.<br><a id="3">[3]</a> Ma, Jing, Wei Gao, and Kam-Fai Wong. "Detect rumors in microblog posts using propagation structure via kernel learning." Association for Computational Linguistics, 2017.',
+    likes: 36,
+    upVoted: false
+   }
 ]
 
 Vue.component('tweet-component', {
