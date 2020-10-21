@@ -171,12 +171,19 @@ html, body, #app {
     padding: 10px;
     border-bottom: 1px solid $borderColor;
 
+    .content {
+      padding-right: 10px;
+    }
+
     .user-image {
       border-radius: 99px;
     }
     
     .verified-icon {
+      margin-bottom: -6px;
       width: 15px;  
+      height: 1.25em;
+      fill: rgba(29,161,242,1.00);
     }
 
     p {
@@ -204,13 +211,13 @@ html, body, #app {
   
     .level-left .level-item.heart {
       cursor: pointer;
-      color: $blueColor;
+      // color: $blueColor;
     }
 
     .level-left p {
       padding-left: 4px;
       font-size: 13px;
-      color: $blueColor;
+      // color: $blueColor;
     }
 
     .level-left .fa-heart.fas {
@@ -261,32 +268,39 @@ html, body, #app {
 }
 
 // Media Queries
-@media(max-width: $small) {
-  #app {
-    height: 100% !important;
-    padding-top: 0 !important;
+@media(max-width: 1200px) {
+  .twitter {
+    width: calc(100% - 223px);
+    margin: auto;
   }
-
-  .app__phone,
-  .app__phone__scroll__cover {
-    height: 100%;
-    width: 100%;
-  }
-
-  .phone-header,
-  .phone-footer {
-    width: 100%;
-  }
+  
 }
+// @media(max-width: $small) {
+//   #app {
+//     height: 100% !important;
+//     padding-top: 0 !important;
+//   }
 
-@media(max-width: $large) and (max-height: $small) {
-  .iphone {
-    transform: scale(.5);
-  }
-}
+//   .app__phone,
+//   .app__phone__scroll__cover {
+//     height: 100%;
+//     width: 100%;
+//   }
 
-@keyframes blink {
-	from { opacity: 1; }
-	to { opacity: 0; }
-}
+//   .phone-header,
+//   .phone-footer {
+//     width: 100%;
+//   }
+// }
+
+// @media(max-width: $large) and (max-height: $small) {
+//   .iphone {
+//     transform: scale(.5);
+//   }
+// }
+
+// @keyframes blink {
+// 	from { opacity: 1; }
+// 	to { opacity: 0; }
+// }
 

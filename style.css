@@ -145,11 +145,17 @@ html, body, #app {
   padding: 10px;
   border-bottom: 1px solid #e6ecf1;
 }
+.feed .tweet .content {
+  padding-right: 10px;
+}
 .feed .tweet .user-image {
   border-radius: 99px;
 }
 .feed .tweet .verified-icon {
+  margin-bottom: -6px;
   width: 15px;
+  height: 1.25em;
+  fill: #1da1f2;
 }
 .feed .tweet p {
   font-size: 16px;
@@ -171,12 +177,10 @@ html, body, #app {
 }
 .feed .tweet .level-left .level-item.heart {
   cursor: pointer;
-  color: #1ca0f3;
 }
 .feed .tweet .level-left p {
   padding-left: 4px;
   font-size: 13px;
-  color: #1ca0f3;
 }
 .feed .tweet .level-left .fa-heart.fas {
   color: #e0245e;
@@ -221,34 +225,10 @@ html, body, #app {
   opacity: 0;
 }
 
-@media (max-width: 520px) {
-  #app {
-    height: 100% !important;
-    padding-top: 0 !important;
-  }
-
-  .app__phone,
-.app__phone__scroll__cover {
-    height: 100%;
-    width: 100%;
-  }
-
-  .phone-header,
-.phone-footer {
-    width: 100%;
-  }
-}
-@media (max-width: 1216px) and (max-height: 520px) {
-  .iphone {
-    transform: scale(0.5);
-  }
-}
-@keyframes blink {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
+@media (max-width: 1200px) {
+  .twitter {
+    width: calc(100% - 223px);
+    margin: auto;
   }
 }
 

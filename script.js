@@ -5,8 +5,28 @@ const tweets = [
     handle: '@ProbablyAlexDay',
     verified: true,
     timeLapsed: '5m',
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis diam non arcu fringilla dictum. Nullam dictum, nisl eu tempor aliquet, purus nisl porta mauris, et pulvinar mauris nunc non leo. Aliquam erat volutpat. Morbi cursus semper lacinia. Proin fermentum purus non ex convallis, viverra aliquam enim placerat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque mi odio, convallis in sapien nec, iaculis venenatis metus. In id diam nec ligula accumsan vulputate ultricies ut sem. Nam fringilla lobortis ex eget vehicula. Duis non justo at tortor suscipit iaculis quis quis mauris. Vivamus maximus suscipit viverra. Maecenas scelerisque purus turpis, et facilisis nunc sollicitudin tincidunt. Maecenas ac nisl quis lorem venenatis sollicitudin non vitae mi. Curabitur sodales velit quis finibus accumsan. Nunc sagittis vulputate neque, id tincidunt magna tempus a. Nam sollicitudin, lorem congue placerat posuere, felis felis porttitor lacus, non blandit nisl ex nec eros.`,
+    description: 'INTRODUCTION TO PROBLEM Misinformation on Twitter is rampant, coming to a head with the 2020 U.S. election. Large political accounts have been locked as to try to dissuade people with large audiences from spreading unsubstantiated rumors. One of the most important aspects in how any information propogates is the ',
     likes: 1256,
+    upVoted: false
+   },
+   {
+    name: 'Alex Day',
+    userImage: 'https://pbs.twimg.com/profile_images/1174730764375789573/LbaHHQnu_400x400.jpg',
+    handle: '@ProbablyAlexDay',
+    verified: true,
+    timeLapsed: '7m',
+    description: 'DATASET DESCRIPTION',
+    likes: 21,
+    upVoted: false
+   },
+   {
+    name: 'Alex Day',
+    userImage: 'https://pbs.twimg.com/profile_images/1174730764375789573/LbaHHQnu_400x400.jpg',
+    handle: '@ProbablyAlexDay',
+    verified: true,
+     timeLapsed: '10m',
+    description: 'The following graph shows how much longer it takes for a False tweet to get discovered <div id="avg-retweet-chart"> </div>',
+    likes: 36,
     upVoted: false
    },
    {
@@ -14,19 +34,19 @@ const tweets = [
     userImage: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/drizzy_twitter.png',
     handle: '@mefowler',
     verified: true,
-    timeLapsed: '15m',
-    description: `Aenean accumsan ultricies congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis arcu vel leo dictum, quis efficitur lacus aliquet. Suspendisse fringilla tellus at nulla feugiat, nec rutrum urna iaculis. Nulla congue viverra ultrices. Suspendisse quis leo libero. Aenean ut porttitor augue. Vestibulum venenatis leo interdum ligula interdum tempor. Donec consequat eros vitae orci luctus dignissim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam condimentum odio vitae justo mattis pharetra. Mauris sodales eu justo vitae aliquet. Sed dignissim finibus cursus.`,
-    tweetImage: 'min_avg_retweet_time.svg',
-    likes: 4586,
+    timeLapsed: '12m',
+     description: 'MEGANS GRAPH',
+    likes: 586,
     upVoted: false
    },
    {
     name: 'Xiaohong Zhang',
-    userImage: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me-formal.jpg',
+    userImage: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/drizzy_twitter.png',
     handle: '@xiaohoz',
-    timeLapsed: '1h',
-    description: 'Quisque eget posuere arcu, nec aliquet ipsum. Pellentesque cursus volutpat turpis sed imperdiet. Quisque blandit sit amet tellus quis finibus. Suspendisse potenti. Ut vel est risus. Nam rhoncus finibus posuere. Nunc posuere commodo risus non consectetur. Donec ut iaculis diam. Suspendisse eu pharetra sem, eget bibendum massa. Mauris blandit eros gravida orci tincidunt dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus ullamcorper eros id ipsum maximus mollis.',
-    likes: 36,
+    verified: true,
+    timeLapsed: '27m',
+     description: 'XIAOHONGS GRAPH',
+    likes: 486,
     upVoted: false
    },
 ]
@@ -45,11 +65,8 @@ Vue.component('tweet-component', {
             <div class="content">
               <p>
                 <strong>{{tweet.name}}</strong>
-                <img class="verified-icon"
-                     src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/twitter_verified.png"
-                     v-if="tweet.verified" />
-                <small>{{tweet.handle}}</small>
-                <small class="time-lapsed">{{tweet.timeLapsed}}</small>
+                <svg class="verified-icon" viewBox="0 0 24 24" aria-label="Verified account"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg>
+                <small>{{tweet.handle}}</small> · <small class="time-lapsed">{{tweet.timeLapsed}}</small>
                 <br>
                 <span class="description" v-html="computedDescription"></span>
               </p>
@@ -84,8 +101,11 @@ Vue.component('tweet-component', {
   computed: {
     computedDescription() {
       return this.tweet.description.split(' ').map((word) => {
-        if (word[0] === '@' || word[0] === '#') {
-          word = `<span class="highlighted">${word}</span>`;
+        if (word[0] === '@') {
+          word = `<a class="highlighted" href="https://twitter.com/${word.replace("@", "")}">${word}</a>`;
+        }
+        else if (word[0] === '#') {
+          word = `<a class="highlighted" href="https://twitter.com/hashtag/${word.replace("#", "")}">${word}</a>`;
         }
         return word;
       }).join(' ');
@@ -105,70 +125,5 @@ new Vue({
     tweets,
     image: '',
     description: '',
-    step: null,
-    showDetails: false,
-    fileInput: ''
   },
-  created() {
-    setTimeout(() => {
-      this.step = 1;
-    }, 1000);
-  },
-  methods: {
-    fileUpload(e) {
-      const files = e.target.files || e.dataTransfer.files;
-      if (!files.length) return;
-      this.image = files[0];
-      this.createImage();
-    },
-    createImage() {
-      const image = new Image();
-      const reader = new FileReader();
-
-      reader.onload = e => {
-        this.image = e.target.result;
-        this.step = 2;
-      };
-      reader.readAsDataURL(this.image);
-    },
-    uploadRandomImage() {
-      const randomImages = [
-        'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/twitter_mobile.png',
-        'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/cn-tower.jpg',
-        'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/prism-goggles-at-concert.jpg',
-        'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/working-at-night.jpg',
-        'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/busy-beach.jpg',
-        'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/grand-canyon.jpg',
-        'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/carnival-lights-at-dusk.jpg'
-      ];
-      
-      this.image = randomImages[Math.floor(Math.random() * randomImages.length)];
-      this.step = 2;
-    },
-    goToHome() {
-      this.image = '';
-      this.description = '';
-      this.step = 1;
-      
-      this.$nextTick(() => {
-        const feed = document.getElementById('feed');
-        if (feed) feed.scrollTop = 0;
-      });
-    },
-    shareTweet() {
-      const tweet = {
-        name: 'CodePen.IO',
-        userImage: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/codepen_logo.png',
-        handle: '@CodePen',
-        timeLapsed: '1m',
-        tweetImage: this.image,
-        description: this.description,
-        likes: 0,
-        upVoted: false,
-      }
-      
-      this.tweets.unshift(tweet);
-      this.goToHome();
-    }
-  }
 });
