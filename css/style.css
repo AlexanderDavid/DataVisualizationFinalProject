@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700, 900");
+
 *, *:after, *:before {
   box-sizing: border-box;
 }
@@ -20,7 +21,7 @@ html, body, #app {
 
 .top-bar, .bottom-bar {
   display: block;
-  width: 423px;
+  width: 100%;
   height: 15px;
   position: absolute;
   left: -5px;
@@ -47,37 +48,7 @@ html, body, #app {
   height: 100%;
 }
 
-.iphone-buttons .on-off, .iphone-buttons .up, .iphone-buttons .down, .iphone-buttons .sleep {
-  display: block;
-  background: #CCC;
-  position: absolute;
-  border-radius: 2px 0px 0px 2px;
-}
-.iphone-buttons .on-off {
-  height: 40px;
-  width: 3px;
-  top: 100px;
-  left: -8px;
-}
-.iphone-buttons .up, .iphone-buttons .down, .iphone-buttons .sleep {
-  height: 60px;
-  width: 5px;
-  left: -10px;
-}
-.iphone-buttons .up {
-  top: 170px;
-}
-.iphone-buttons .down {
-  top: 250px;
-}
-.iphone-buttons .sleep {
-  left: auto;
-  right: -10px;
-  top: 170px;
-  border-radius: 0px 2px 2px 0px;
-}
-
-.phone-header {
+.header {
   height: 50px;
   width: 1200px;
   position: sticky;
@@ -86,52 +57,53 @@ html, body, #app {
   z-index: 99;
   text-align: center;
 }
-.phone-header p {
+
+.header p {
   font-weight: 900;
-  font-size: 19px;
+  font-size: 19ems;
   padding-top: 11px;
 }
-.phone-header .img-1 {
+.header .img-1 {
   max-width: 35px;
   position: absolute;
   top: 7px;
   left: 10px;
   border-radius: 99px;
 }
-.phone-header .img-2 {
+.header .img-2 {
   max-width: 30px;
   position: absolute;
   top: 7px;
   right: 10px;
   cursor: pointer;
 }
-.phone-header .fa-times {
+.header .fa-times {
   color: #1ca0f3;
-  font-size: 25px;
+  font-size: 25ems;
   position: absolute;
   top: 12px;
   left: 20px;
   cursor: pointer;
 }
-.phone-header .button.is-primary {
+.header .button.is-primary {
   background-color: #1ca0f3;
   border-radius: 12px;
   position: absolute;
   top: 12px;
   right: 20px;
 }
-.phone-header .cancel-cta,
-.phone-header .next-cta {
+.header .cancel-cta,
+.header .next-cta {
   position: absolute;
   top: 12px;
   color: #209cee;
   font-weight: bold;
   cursor: pointer;
 }
-.phone-header .cancel-cta {
+.header .cancel-cta {
   left: 10px;
 }
-.phone-header .next-cta {
+.header .next-cta {
   right: 10px;
 }
 
@@ -146,7 +118,7 @@ html, body, #app {
   border-bottom: 1px solid #e6ecf1;
 }
 .feed .tweet .content {
-  padding-right: 10px;
+  padding-right: 30px;
 }
 .feed .tweet .user-image {
   border-radius: 99px;
@@ -158,7 +130,7 @@ html, body, #app {
   fill: #1da1f2;
 }
 .feed .tweet p {
-  font-size: 16px;
+  font-size: 16ems;
 }
 .feed .tweet small {
   color: #657685;
@@ -180,7 +152,7 @@ html, body, #app {
 }
 .feed .tweet .level-left p {
   padding-left: 4px;
-  font-size: 13px;
+  font-size: 13ems;
 }
 .feed .tweet .level-left .fa-heart.fas {
   color: #e0245e;
@@ -192,43 +164,13 @@ html, body, #app {
   margin-bottom: 85px;
 }
 
-.details {
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-}
-.details li {
-  font-size: 0.8rem;
-}
-.details li span {
-  font-weight: bold;
-}
-
-.footer-contact {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-}
-.footer-contact .fa-twitter {
-  color: #209cee;
-  font-size: 2rem;
-}
-.footer-contact .fa-twitter:hover {
-  color: #1496ed;
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
-
 @media (max-width: 1200px) {
   .twitter {
-    width: calc(100% - 223px);
+    width: 100%;
     margin: auto;
+  }
+  .header {
+    width: 100%
   }
 }
 

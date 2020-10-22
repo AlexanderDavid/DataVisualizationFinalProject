@@ -1,11 +1,11 @@
 var margin = {
-    top: 90,
-    right: (parseInt(d3.select('body').style('width'), 10)/5), 
-    bottom: 100,
-    left: (parseInt(d3.select('body').style('width'), 10)/10)
+    top: 30,
+    right: 50,
+    bottom: 75,
+    left: 120
 },
     width = parseInt(d3.select('#avg-retweet-chart').style('width'), 10) - margin.right - margin.left;
-    height = width / 16 * 10; parseInt(d3.select('#avg-retweet-chart').style('height'), 10) - margin.top - margin.bottom;
+    height = width / 16 * 10; 
 
 
 
@@ -57,7 +57,8 @@ svg.append("g")
     .style("font", "14px roboto")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
+    .call(xAxis)
+
 
 svg.append("g")
     .style("font", "14px roboto")

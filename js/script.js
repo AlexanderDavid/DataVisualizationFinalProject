@@ -25,7 +25,7 @@ const tweets = [
     handle: '@ProbablyAlexDay',
     verified: true,
      timeLapsed: '10m',
-    description: 'The following graph shows how much longer it takes for a False tweet to get discovered <div id="avg-retweet-chart"> </div>',
+    description: 'The following graph shows how much longer it takes for a False tweet to get discovered in compared to a Non-Rumor tweet. It is obvious that there is a large disparity between the average first retweet time.<div id="avg-retweet-chart"> </div>',
     likes: 36,
     upVoted: false
    },
