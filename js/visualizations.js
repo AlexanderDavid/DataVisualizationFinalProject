@@ -132,18 +132,18 @@ async function tweet_graph(div_id, filename, color) {
     return svg.node() 
 }
 
-tweet_graph("#non-rumor-graph", "/js/688932211714818048.json", "#00b32c");
-tweet_graph("#false-graph", "/js/520338188213444608.json", "#ff0012");
+tweet_graph("#non-rumor-graph", "https://raw.githubusercontent.com/AlexanderDavid/DataVisualizationFinalProject/master/js/688932211714818048.json?token=ACQZPZPPNWLZ2OYOD44QUKS7VMD4Q", "#00b32c");
+tweet_graph("#false-graph", "https://raw.githubusercontent.com/AlexanderDavid/DataVisualizationFinalProject/master/js/520338188213444608.json?token=ACQZPZNG4YJEOZURL2S65BK7VMDZU", "#ff0012");
 
 // TWEET GRAPH QUIZ
 const questions = [
     {
         type: "Non-Rumor",
-        path: "/js/688932211714818048.json"
+        path: " https://raw.githubusercontent.com/AlexanderDavid/DataVisualizationFinalProject/master/js/688932211714818048.json?token=ACQZPZPPNWLZ2OYOD44QUKS7VMD4Q"
     },
     {
         type: "False",
-        path: "/js/520338188213444608.json"
+        path: "https://raw.githubusercontent.com/AlexanderDavid/DataVisualizationFinalProject/master/js/520338188213444608.json?token=ACQZPZNG4YJEOZURL2S65BK7VMDZU"
     }
 ]
 let question_number = 0;
