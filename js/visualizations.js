@@ -147,7 +147,7 @@ tweet_graph("#false-graph", "/DataVisualizationFinalProject/js/52033818821344460
 const questions = [
     {
         type: "Non-Rumor",
-        path: "/DataVisualizationFinalProject/master/js/688932211714818048.json?token=ACQZPZPPNWLZ2OYOD44QUKS7VMD4Q"
+        path: "/DataVisualizationFinalProject/js/688932211714818048.json"
     },
     {
         type: "False",
