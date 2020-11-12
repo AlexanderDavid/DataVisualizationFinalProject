@@ -199,6 +199,9 @@ html, body, #app {
 .feed .tweet:last-of-type {
   margin-bottom: 85px;
 }
+#network-select-graph {
+  text-align: center;
+}
 
 @media (max-width: 1200px) {
   .twitter {

@@ -77,7 +77,7 @@ function barchart() {
 barchart();
 
 // TWEET GRAPH KNOWN
-async function tweet_graph(div_id, filename, color) {
+async function tweet_graph(div_id, filename, color, legand) {
     let data = await d3.json(filename);
 
     var width = 500
@@ -101,11 +101,10 @@ async function tweet_graph(div_id, filename, color) {
     .on('tick', ticked);
 
     if (legand) {
-    svg.append("circle").attr("cx",400).attr("cy",30).attr("r", 6).style("fill", "#00b32c")
-    svg.append("circle").attr("cx",400).attr("cy",60).attr("r", 6).style("fill", "#ff0012")
-    svg.append("text").attr("x", 420).attr("y", 30).text("Non-Rumor").style("font-size", "15px").attr("alignment-baseline","middle")
-    svg.append("text").attr("x", 420).attr("y", 60).text("False").style("font-size", "15px").attr("alignment-baseline","middle")
-
+        svg.append("circle").attr("cx",400).attr("cy",30).attr("r", 6).style("fill", "#00b32c")
+        svg.append("circle").attr("cx",400).attr("cy",60).attr("r", 6).style("fill", "#ff0012")
+        svg.append("text").attr("x", 420).attr("y", 30).text("Non-Rumor").style("font-size", "15px").attr("alignment-baseline","middle")
+        svg.append("text").attr("x", 420).attr("y", 60).text("False").style("font-size", "15px").attr("alignment-baseline","middle")
     }
 
     
@@ -140,27 +139,34 @@ async function tweet_graph(div_id, filename, color) {
     return svg.node() 
 }
 
-tweet_graph("#non-rumor-graph", "/DataVisualizationFinalProject/js/688932211714818048.json", "#00b32c");
-tweet_graph("#false-graph", "/DataVisualizationFinalProject/js/520338188213444608.json", "#ff0012");
+tweet_graph("#non-rumor-graph", "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/688932211714818048.json", "#00b32c", false);
+tweet_graph("#false-graph", "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/520338188213444608.json", "#ff0012", true);
 
 // TWEET GRAPH QUIZ
 const questions = [
     {
         type: "Non-Rumor",
-        path: "/DataVisualizationFinalProject/js/688932211714818048.json"
+        path: "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/688932211714818048.json"
     },
     {
         type: "False",
-        path: "/DataVisualizationFinalProject/js/520338188213444608.json"
+        path: "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/520338188213444608.json"
     }
 ]
 let question_number = 0;
 let right = 0
 
 // Seed the graph
-tweet_graph("#network-select-graph", questions[question_number]["path"], "#7851a9");
+tweet_graph("#network-select-graph", questions[question_number]["path"], "#7851a9", false);
 
 document.getElementById("next").onclick = function() {
+    // Check that the quiz is not ended
+
+    if (question_number == questions.length) {
+        Swal.fire("That was the last question!");
+        return;
+    }
+
     // Get user input
     let user_choice_rb = document.getElementsByName('graph'); 
     let user_choice = "";
@@ -171,15 +177,40 @@ document.getElementById("next").onclick = function() {
 
     // Check against known
     if (user_choice == questions[question_number]["type"]) {
-        console.log("Right!");
+        question_number++;
         right++;
+        if (question_number == questions.length) {
+            Swal.fire(
+                "Finished",
+                "Nice! You got that one right. That was the last question! You got " + right + " out of " + questions.length + " correct. Good job!",
+                "success");
+        } else {
+            Swal.fire(
+                'Good job!',
+                'Correct answer!',
+                'success'
+            );
+        }
     } else {
-        console.log("Wrong!");
+        question_number++;
+        if (question_number == questions.length) {
+            Swal.fire(
+                "Finished",
+                "Whoops, you got that one wrong. That was the last question! You got " + right + " out of " + questions.length + " correct. Good job!",
+                "error");
+            return;
+        } else {
+            Swal.fire(
+                'Whoops',
+                'Wrong answer!',
+                'error'
+            );
+        }
     }
-    question_number++;
+
 
     // Replace the graph
     document.getElementById("network-select-graph").innerHTML = "";
-    tweet_graph("#network-select-graph", questions[question_number]["path"], "#7851a9");
+    tweet_graph("#network-select-graph", questions[Math.min(question_number, questions.length - 1)]["path"], "#7851a9", false);
 }
 
