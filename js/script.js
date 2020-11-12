@@ -35,7 +35,7 @@ const tweets = [
     handle: '@mefowler',
     verified: true,
     timeLapsed: '12m',
-     description: 'MEGANS GRAPH <div id="packed-pie-chart"> </div>',
+     description: 'Not all users retweet the same kind of information. This graph displays the types of tweets shared by users as well as the amount of tweets shared. The larger the pie chart, the more the user retweeted. We see ... [to be finished when the sample is finalized. <div id="packed-pie-chart"> </div>',
     likes: 586,
     upVoted: false
    },
