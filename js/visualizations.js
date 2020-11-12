@@ -82,8 +82,8 @@ barchart();
 
 function packed_pie_chart(filename){
 
-    var data = d3.csvParse(await FileAttachment("sample2.csv").text(), ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
-    var data2 = d3.csvParse(await FileAttachment("sample2.csv").text(), ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
+    var data = d3.csvParse(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
+    var data2 = d3.csvParse(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
   
     var size = d3.min([document.documentElement.clientHeight*0.9,document.documentElement.clientWidth*0.9])
   
