@@ -76,6 +76,132 @@ function barchart() {
 }
 barchart();
 
+
+
+//TYPES OF RETWEETERS
+
+function packed_pie_chart(filename){
+
+    var data = d3.csvParse(await FileAttachment("sample2.csv").text(), ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
+    var data2 = d3.csvParse(await FileAttachment("sample2.csv").text(), ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
+  
+    var size = d3.min([document.documentElement.clientHeight*0.9,document.documentElement.clientWidth*0.9])
+  
+    var dimensions = ( {
+        width: size,
+        height: size,
+        margin: {
+            top: 10,
+            right: 10,
+            left: 50,
+            bottom: 50,
+        }
+    })
+  
+    var color = d3.scaleOrdinal(['#F78702', '#f6546a', '#95497e', '#81d8d0' ])
+    var groupByID = d3.group(data, d => d.UserID)
+    var reduceFn = data => d3.sum(data, d => d["T"] + d["F"] + d["NR"] + d["U"])
+    var rollupData = d3.rollup(data, reduceFn, d => d.UserID)
+    var childrenAccessorFn = ([ key, value ]) => value.size && Array.from(value)
+    
+    var hierarchyData = d3.hierarchy([null, rollupData], childrenAccessorFn)
+        .sum(([key, value]) => value)
+    
+    var pack = data => d3.pack()
+        .size([dimensions.width - 2, dimensions.height - 2])
+        .padding(3)
+    (hierarchyData)
+    
+    
+    const root = pack(data);
+    
+    const svg = d3.create("svg")
+        .attr("viewBox", [0, 0, dimensions.width, dimensions.height])
+        .attr("font-size", 10)
+        .attr("font-family", "sans-serif")
+        .attr("text-anchor", "middle");
+
+    
+    const leaf = svg.selectAll("g")
+        .data(root.leaves())
+        .join("g")
+        .attr("transform", d => `translate(${d.x + 1},${d.y + 1})`)
+    
+    leaf.append("g")
+        .attr("id", d => (d.leafUid = DOM.uid("leaf")).UserID)
+        .attr("r", d => d.r)
+    
+    var pie = d3.pie()
+        .sort(null)
+        .value(d => d.value)
+    
+    var pieFn = data => [
+        {label: "True", value: data["T"]}, 
+        {label: "False", value: data["F"]},
+        {label: "Non-Rumor", value: data["NR"]},
+        {label: "Unverified", value: data["U"]}]
+    
+    leaf.each(function(d){
+        var pieG = d3.select(this);
+        var piedata = data2.filter(User => User.UserID == d.data[0])
+        var setpie = pieFn(piedata[0])
+        var arcs = pie(setpie);
+        
+        var arc = d3.arc()
+            .innerRadius(0)
+            .outerRadius(d.r)
+        
+        pieG.append("g")
+            .attr("stroke", "white")
+            .selectAll("path")
+            .data(arcs)
+            .join("path")
+            .attr("fill", d => color(d.data.label))
+            .attr("d", arc)
+            .append("title")
+            .text(d => `${d.data.label}: ${d.data.value.toLocaleString()}`);
+        
+        pieG.append("g")
+            .attr("font-family", "sans-serif")
+            .attr("font-size", 12)
+            .attr("text-anchor", "middle")
+            .selectAll("text")
+            .data(arcs)  
+        
+    });
+    
+    var keys = ["True", "False", "Non-Rumor", "Unverified"]
+    
+    svg.selectAll("mydots")
+    .data(keys)
+    .enter()
+    .append("circle")
+        .attr("cx", 10)
+        .attr("cy", function(d,i){ return 10 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+        .attr("r", 7)
+        .style("fill", function(d){ return color(d)})
+
+    
+    svg.selectAll("mylabels")
+    .data(keys)
+    .enter()
+    .append("text")
+        .attr("x", 50)
+        .attr("y", function(d,i){ return 10 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+        .style("fill", function(d){ return color(d)})
+        .text(function(d){ return d})
+        .attr("text-anchor", "left")
+        .style("alignment-baseline", "left")
+        
+    return svg.node();
+
+}
+
+
+
+packed_pie_chart("js\sample.csv")
+
+
 // TWEET GRAPH KNOWN
 async function tweet_graph(div_id, filename, color) {
     let data = await d3.json(filename);

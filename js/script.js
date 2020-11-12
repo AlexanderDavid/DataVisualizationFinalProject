@@ -35,7 +35,7 @@ const tweets = [
     handle: '@mefowler',
     verified: true,
     timeLapsed: '12m',
-     description: 'MEGANS GRAPH',
+     description: 'MEGANS GRAPH <div id="avg-retweet-chart"> </div>',
     likes: 586,
     upVoted: false
    },
