@@ -199,6 +199,20 @@ html, body, #app {
 .feed .tweet:last-of-type {
   margin-bottom: 85px;
 }
+#network-select-graph {
+  text-align: center;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  
+}
+    .next-button {
+      margin: auto 40px;
+    }
+    .graph-input {
+      margin: 40px;
+    }
 
 @media (max-width: 1200px) {
   .twitter {
