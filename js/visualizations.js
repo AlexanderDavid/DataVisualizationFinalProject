@@ -98,7 +98,7 @@ function packed_pie_chart(filename){
         }
     })
   
-    var color = d3.scaleOrdinal(['#F78702', '#f6546a', '#95497e', '#81d8d0' ])
+    var color = d3.scaleOrdinal(['#28d148', '#1f77b4', '#ff7f0e', '#d82825' ])
     var groupByID = d3.group(data, d => d.UserID)
     var reduceFn = data => d3.sum(data, d => d["T"] + d["F"] + d["NR"] + d["U"])
     var rollupData = d3.rollup(data, reduceFn, d => d.UserID)
@@ -115,7 +115,7 @@ function packed_pie_chart(filename){
     
     const root = pack(data);
     
-    const svg = d3.create("svg")
+    const svg = d3.select("#packed-pie-chart").append("svg")
         .attr("viewBox", [0, 0, dimensions.width, dimensions.height])
         .attr("font-size", 10)
         .attr("font-family", "sans-serif")
@@ -198,8 +198,7 @@ function packed_pie_chart(filename){
 }
 
 
-
-packed_pie_chart("js\sample.csv")
+packed_pie_chart("/DataVisualizationFinalProject/js/688932211714818048.sample.csv")
 
 
 // TWEET GRAPH KNOWN
