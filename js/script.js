@@ -55,7 +55,7 @@ const tweets = [
     handle: '@ProbablyAlexDay',
     verified: true,
     timeLapsed: '30m',
-    description: "Now it's your turn to try and categorize the following graphs. The graph that shows up will either be a Non-Rumor or a False tweet. Use the radio buttons below to categorize the tweet and then check your answer with the next button. Remember to compare the graphs to the labeled graphs above. <div><div class='graph-select'><div style='height: 500px' id='network-select-graph'></div> <div class='controls'> <div> <input type='radio' id='non-rumor' name='graph' value='Non-Rumor' checked> <label for='non-rumor'>Non-Rumor</label> </div> <div> <input type='radio' id='false' name='graph' value='False'> <label for='false-tweet'>False</label> </div> <button id='next'>Next</button></div></div></div>",
+    description: "Now it's your turn to try and categorize the following graphs. The graph that shows up will either be a Non-Rumor or a False tweet. Use the radio buttons below to categorize the tweet and then check your answer with the next button. Remember to compare the graphs to the labeled graphs above. <div><div class='graph-select'><div style='height: 500px' id='network-select-graph'></div> <div class='controls'> <div class='graph-input'> <div> <input type='radio' id='non-rumor' name='graph' value='Non-Rumor' checked> <label for='non-rumor'>Non-Rumor</label> </div> <div> <input type='radio' id='false' name='graph' value='False'> <label for='false-tweet'>False</label> </div></div> <div class='next-button'><button id='next'>Next</button></div></div></div></div>",
     likes: 36,
     upVoted: false
    },
