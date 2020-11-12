@@ -226,6 +226,14 @@ async function tweet_graph(div_id, filename, color) {
     .force("y", d3.forceY())
     .on('tick', ticked);
 
+    if (legand) {
+    svg.append("circle").attr("cx",400).attr("cy",30).attr("r", 6).style("fill", "#00b32c")
+    svg.append("circle").attr("cx",400).attr("cy",60).attr("r", 6).style("fill", "#ff0012")
+    svg.append("text").attr("x", 420).attr("y", 30).text("Non-Rumor").style("font-size", "15px").attr("alignment-baseline","middle")
+    svg.append("text").attr("x", 420).attr("y", 60).text("False").style("font-size", "15px").attr("alignment-baseline","middle")
+
+    }
+
     
     var edges = svg.append("g")
                    .selectAll("line")
@@ -258,18 +266,18 @@ async function tweet_graph(div_id, filename, color) {
     return svg.node() 
 }
 
-tweet_graph("#non-rumor-graph", "https://raw.githubusercontent.com/AlexanderDavid/DataVisualizationFinalProject/master/js/688932211714818048.json?token=ACQZPZPPNWLZ2OYOD44QUKS7VMD4Q", "#00b32c");
-tweet_graph("#false-graph", "https://raw.githubusercontent.com/AlexanderDavid/DataVisualizationFinalProject/master/js/520338188213444608.json?token=ACQZPZNG4YJEOZURL2S65BK7VMDZU", "#ff0012");
+tweet_graph("#non-rumor-graph", "/DataVisualizationFinalProject/js/688932211714818048.json", "#00b32c");
+tweet_graph("#false-graph", "/DataVisualizationFinalProject/js/520338188213444608.json", "#ff0012");
 
 // TWEET GRAPH QUIZ
 const questions = [
     {
         type: "Non-Rumor",
-        path: " https://raw.githubusercontent.com/AlexanderDavid/DataVisualizationFinalProject/master/js/688932211714818048.json?token=ACQZPZPPNWLZ2OYOD44QUKS7VMD4Q"
+        path: "/DataVisualizationFinalProject/js/688932211714818048.json"
     },
     {
         type: "False",
-        path: "https://raw.githubusercontent.com/AlexanderDavid/DataVisualizationFinalProject/master/js/520338188213444608.json?token=ACQZPZNG4YJEOZURL2S65BK7VMDZU"
+        path: "/DataVisualizationFinalProject/js/520338188213444608.json"
     }
 ]
 let question_number = 0;
