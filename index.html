@@ -39,6 +39,13 @@
   <script src="https://d3js.org/d3.v6.min.js"></script>
   <script  src="./js/script.js"></script>
   <script  src="./js/visualizations.js"></script>
+  <script type="module">
+  import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+  import define from "https://api.observablehq.com/d/be9036b3ad04f3b0.js?v=3";
+  (new Runtime).module(define, name => {
+    if (name === "chart") return Inspector.into(".chart")();
+  });
+  </script>
 
 </body>
 </html>
