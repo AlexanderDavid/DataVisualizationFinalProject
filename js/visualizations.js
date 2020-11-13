@@ -1,4 +1,6 @@
 // MINIMUM AVERAGE RETWEET CHART
+const non_rumor_color = "#00b32c";
+const false_color = "#ff0012";
 
 function barchart() {
     var margin = {
@@ -38,8 +40,7 @@ function barchart() {
 
     var bandwidth = d3.scaleBand().domain([dataset.map(function(d) { return d.Type } )]).range([0, width]).bandwidth();
 
-    var color = d3.scaleOrdinal(d3.schemeCategory10);
-
+    var color = d3.scaleOrdinal([false_color, non_rumor_color]);
     var xAxis = d3.axisBottom(x)
     var yAxis = d3.axisLeft(y)
 
@@ -225,8 +226,8 @@ async function tweet_graph(div_id, filename, color, legand) {
     .on('tick', ticked);
 
     if (legand) {
-        svg.append("circle").attr("cx",400).attr("cy",30).attr("r", 6).style("fill", "#00b32c")
-        svg.append("circle").attr("cx",400).attr("cy",60).attr("r", 6).style("fill", "#ff0012")
+        svg.append("circle").attr("cx",400).attr("cy",30).attr("r", 6).style("fill", non_rumor_color)
+        svg.append("circle").attr("cx",400).attr("cy",60).attr("r", 6).style("fill", false_color)
         svg.append("text").attr("x", 420).attr("y", 30).text("Non-Rumor").style("font-size", "15px").attr("alignment-baseline","middle")
         svg.append("text").attr("x", 420).attr("y", 60).text("False").style("font-size", "15px").attr("alignment-baseline","middle")
     }
@@ -263,8 +264,8 @@ async function tweet_graph(div_id, filename, color, legand) {
     return svg.node() 
 }
 
-tweet_graph("#non-rumor-graph", "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/688932211714818048.json", "#00b32c", false);
-tweet_graph("#false-graph", "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/520338188213444608.json", "#ff0012", true);
+tweet_graph("#non-rumor-graph", "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/688932211714818048.json", non_rumor_color, false);
+tweet_graph("#false-graph", "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/520338188213444608.json", false_color, true);
 
 // TWEET GRAPH QUIZ
 const questions = [
