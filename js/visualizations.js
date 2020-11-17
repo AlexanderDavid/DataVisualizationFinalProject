@@ -83,8 +83,8 @@ barchart();
 
 function packed_pie_chart(filename){
 
-    var data = d3.csvParse(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
-    var data2 = d3.csvParse(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
+    var data = d3.csv(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
+    var data2 = d3.csv(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
   
     var dimensions = ( {
         margin: {
@@ -197,7 +197,7 @@ function packed_pie_chart(filename){
 }
 
 
-// packed_pie_chart("/DataVisualizationFinalProject/js/688932211714818048.sample.csv")
+packed_pie_chart("/DataVisualizationFinalProject/js/688932211714818048.sample.csv")
 
 // TWEET GRAPH KNOWN
 async function tweet_graph(div_id, filename, color, legand) {

@@ -31,7 +31,7 @@ const tweets = [
    },
    {
     name: 'Megan Fowler',
-    userImage: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/drizzy_twitter.png',
+    userImage: 'https://pbs.twimg.com/profile_images/1216023025390424065/W50Dzo6u_400x400.jpg',
     handle: '@mefowler',
     verified: true,
     timeLapsed: '12m',
