@@ -98,7 +98,6 @@ function packed_pie_chart(filename){
 
   
     var color = d3.scaleOrdinal(['#ff7f0e', '#ff0012', '#00b32c', '#1f77b4' ])
-    var groupByID = d3.group(data, d => d.UserID)
     var reduceFn = data => d3.sum(data, d => d["T"] + d["F"] + d["NR"] + d["U"])
     var rollupData = d3.rollup(data, reduceFn, d => d.UserID)
     var childrenAccessorFn = ([ key, value ]) => value.size && Array.from(value)
