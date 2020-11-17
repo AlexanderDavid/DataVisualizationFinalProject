@@ -85,17 +85,17 @@ function packed_pie_chart(filename){
 
     var data = d3.csv(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
     var data2 = d3.csv(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
-  
-    var dimensions = ( {
-        margin: {
-            top: 10,
-            right: 10,
-            left: 50,
-            bottom: 50,
-        },
-        width: parseInt(d3.select("#packed-pie-chart").style('width'), 10) - margin.right - margin.left,
-        height: parseInt(d3.select("#packed-pie-chart").style('height'), 10) - margin.top - margin.bottom
-    })
+
+
+    var margin = {
+        top: 10,
+        right: 10,
+        bottom: 50,
+        left: 50
+    },
+        width = parseInt(d3.select('#avg-retweet-chart').style('width'), 10) - margin.right - margin.left;
+        height = width / 16 * 5;
+
   
     var color = d3.scaleOrdinal(['#ff7f0e', '#ff0012', '#00b32c', '#1f77b4' ])
     var groupByID = d3.group(data, d => d.UserID)
@@ -107,7 +107,7 @@ function packed_pie_chart(filename){
         .sum(([key, value]) => value)
     
     var pack = data => d3.pack()
-        .size([dimensions.width - 2, dimensions.height - 2])
+        .size([width - 2, height - 2])
         .padding(3)
     (hierarchyData)
     
@@ -115,7 +115,7 @@ function packed_pie_chart(filename){
     const root = pack(data);
     
     const svg = d3.select("#packed-pie-chart").append("svg")
-        .attr("viewBox", [0, 0, dimensions.width, dimensions.height])
+        .attr("viewBox", [0, 0, width, height])
         .attr("font-size", 10)
         .attr("font-family", "sans-serif")
         .attr("text-anchor", "middle");
