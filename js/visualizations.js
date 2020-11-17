@@ -86,20 +86,18 @@ function packed_pie_chart(filename){
     var data = d3.csvParse(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
     var data2 = d3.csvParse(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
   
-    var size = d3.min([document.documentElement.clientHeight*0.9,document.documentElement.clientWidth*0.9])
-  
     var dimensions = ( {
-        width: size,
-        height: size,
         margin: {
             top: 10,
             right: 10,
             left: 50,
             bottom: 50,
-        }
+        },
+        width: parseInt(d3.select("#packed-pie-chart").style('width'), 10) - margin.right - margin.left,
+        height: parseInt(d3.select("#packed-pie-chart").style('height'), 10) - margin.top - margin.bottom
     })
   
-    var color = d3.scaleOrdinal(['#28d148', '#1f77b4', '#ff7f0e', '#d82825' ])
+    var color = d3.scaleOrdinal(['#ff7f0e', '#ff0012', '#00b32c', '#1f77b4' ])
     var groupByID = d3.group(data, d => d.UserID)
     var reduceFn = data => d3.sum(data, d => d["T"] + d["F"] + d["NR"] + d["U"])
     var rollupData = d3.rollup(data, reduceFn, d => d.UserID)
