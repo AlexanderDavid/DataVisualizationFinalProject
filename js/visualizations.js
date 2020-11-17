@@ -197,7 +197,7 @@ function packed_pie_chart(filename){
 }
 
 
-packed_pie_chart("/DataVisualizationFinalProject/js/sample.csv")
+packed_pie_chart("https://alexanderdavid.github.io/DataVisualizationFinalProject/js/sample.csv")
 
 // TWEET GRAPH KNOWN
 async function tweet_graph(div_id, filename, color, legand) {
