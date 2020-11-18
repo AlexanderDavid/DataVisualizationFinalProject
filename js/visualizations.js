@@ -97,7 +97,7 @@ function packed_pie_chart(filename){
         height = width / 16 * 5;
 
   
-    var color = d3.scaleOrdinal(['#ff7f0e', '#ff0012', '#00b32c', '#1f77b4' ])
+    var color = d3.scaleOrdinal(['#ff7f0e', '#ff0012', '#00b32c', '#1f77b4'])
     var reduceFn = data => d3.sum(data, d => d["T"] + d["F"] + d["NR"] + d["U"])
     var rollupData = d3.rollup(data, reduceFn, d => d.UserID)
     var childrenAccessorFn = ([ key, value ]) => value.size && Array.from(value)
@@ -196,7 +196,7 @@ function packed_pie_chart(filename){
 }
 
 
-packed_pie_chart("https://alexanderdavid.github.io/DataVisualizationFinalProject/js/sample.csv")
+//packed_pie_chart("https://alexanderdavid.github.io/DataVisualizationFinalProject/js/sample.csv")
 
 // TWEET GRAPH KNOWN
 async function tweet_graph(div_id, filename, color, legand) {
