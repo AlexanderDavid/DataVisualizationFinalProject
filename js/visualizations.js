@@ -261,11 +261,31 @@ async function tweet_graph(div_id, filename, color, legand) {
     return svg.node() 
 }
 
+// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
 tweet_graph("#non-rumor-graph", "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/688932211714818048.json", non_rumor_color, false);
 tweet_graph("#false-graph", "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/520338188213444608.json", false_color, true);
 
 // TWEET GRAPH QUIZ
-const questions = [
+const questions = shuffle([
     {
         type: "Non-Rumor",
         path: "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/688932211714818048.json"
@@ -290,7 +310,8 @@ const questions = [
         type: "False",
         path: "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/520338188213444608.json"
     },
-]
+])
+
 let question_number = 0;
 let right = 0
 
