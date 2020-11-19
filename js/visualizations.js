@@ -83,24 +83,21 @@ barchart();
 
 function packed_pie_chart(filename){
 
-    var data = d3.csvParse(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
-    var data2 = d3.csvParse(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
+    var data = d3.csv(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
+    var data2 = d3.csv(filename, ({UserID, T, F, NR, U, value}) => ({UserID: UserID, T: +T, F: +F, NR: +NR, U: +U, value: +value}))
+
+
+    var margin = {
+        top: 10,
+        right: 10,
+        bottom: 50,
+        left: 50
+    },
+        width = parseInt(d3.select('#avg-retweet-chart').style('width'), 10) - margin.right - margin.left;
+        height = width / 16 * 5;
+
   
-    var size = d3.min([document.documentElement.clientHeight*0.9,document.documentElement.clientWidth*0.9])
-  
-    var dimensions = ( {
-        width: size,
-        height: size,
-        margin: {
-            top: 10,
-            right: 10,
-            left: 50,
-            bottom: 50,
-        }
-    })
-  
-    var color = d3.scaleOrdinal(['#28d148', '#1f77b4', '#ff7f0e', '#d82825' ])
-    var groupByID = d3.group(data, d => d.UserID)
+    var color = d3.scaleOrdinal(['#ff7f0e', '#ff0012', '#00b32c', '#1f77b4'])
     var reduceFn = data => d3.sum(data, d => d["T"] + d["F"] + d["NR"] + d["U"])
     var rollupData = d3.rollup(data, reduceFn, d => d.UserID)
     var childrenAccessorFn = ([ key, value ]) => value.size && Array.from(value)
@@ -109,7 +106,7 @@ function packed_pie_chart(filename){
         .sum(([key, value]) => value)
     
     var pack = data => d3.pack()
-        .size([dimensions.width - 2, dimensions.height - 2])
+        .size([width - 2, height - 2])
         .padding(3)
     (hierarchyData)
     
@@ -117,7 +114,7 @@ function packed_pie_chart(filename){
     const root = pack(data);
     
     const svg = d3.select("#packed-pie-chart").append("svg")
-        .attr("viewBox", [0, 0, dimensions.width, dimensions.height])
+        .attr("viewBox", [0, 0, width, height])
         .attr("font-size", 10)
         .attr("font-family", "sans-serif")
         .attr("text-anchor", "middle");
@@ -199,7 +196,7 @@ function packed_pie_chart(filename){
 }
 
 
-// packed_pie_chart("/DataVisualizationFinalProject/js/688932211714818048.sample.csv")
+//packed_pie_chart("https://alexanderdavid.github.io/DataVisualizationFinalProject/js/sample.csv")
 
 // TWEET GRAPH KNOWN
 async function tweet_graph(div_id, filename, color, legand) {

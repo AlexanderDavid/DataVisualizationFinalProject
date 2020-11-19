@@ -31,11 +31,11 @@ const tweets = [
    },
    {
     name: 'Megan Fowler',
-    userImage: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/drizzy_twitter.png',
+    userImage: 'https://pbs.twimg.com/profile_images/1216023025390424065/W50Dzo6u_400x400.jpg',
     handle: '@mefowler',
     verified: true,
     timeLapsed: '12m',
-     description: 'Not all users retweet the same kind of information. This graph displays the types of tweets shared by users as well as the amount of tweets shared. The larger the pie chart, the more the user retweeted. We see ... [to be finished when the sample is finalized. <div id="packed-pie-chart" class="chart">',
+     description: 'Not all users retweet the same kind of information. This graph displays the types of tweets shared by each individual user as well as the amount of tweets shared. The larger the pie chart, the more the user retweeted. It appears that tweets labeled as non-rumor have many users who retweet, which may explain the large disparity between the average first retweet time. <div id="packed-pie-chart" class="chart">',
     likes: 586,
     upVoted: false
    },
