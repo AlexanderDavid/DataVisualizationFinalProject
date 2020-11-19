@@ -271,9 +271,25 @@ const questions = [
         path: "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/688932211714818048.json"
     },
     {
+        type: "Non-Rumor",
+        path: "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/692453106622275585.json"
+    },
+    {
+        type: "Non-Rumor",
+        path: "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/693560600471863296.json"
+    },
+    {
+        type: "False",
+        path: "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/372901260183494656.json"
+    },
+    {
+        type: "False",
+        path: "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/450341615979069440.json"
+    },
+    {
         type: "False",
         path: "https://alexanderdavid.github.io/DataVisualizationFinalProject/js/520338188213444608.json"
-    }
+    },
 ]
 let question_number = 0;
 let right = 0
