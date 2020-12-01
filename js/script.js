@@ -45,7 +45,7 @@ const tweets = [
     handle: '@xiaohoz',
     verified: true,
     timeLapsed: '27m',
-    description: 'The graphs below show two separate tweet networks. The one in green, on the left, represents a non-rumor network. With this network it is clear to see that there are multiple nodes that propogate the news to their component. These represent authorities of information that are reliable and spread truth more often than not. The other graph, in red and on the right, represents a false tweet network. It is clear to see that with this network there is only one clear malicious actor who spreads a majority of the misinformation.  <div style="text-align:center"><div id="non-rumor-graph" style="display:inline"></div><div id="false-graph" style="display:inline"></div></div>',
+    description: 'The graphs below show two separate tweet networks. The one in green, on the left, represents a non-rumor network. With this network it is clear to see that there are multiple nodes that propogate the news to their component. These represent authorities of information that are reliable and spread truth more often than not. The other graph, in red and on the right, represents a false tweet network. It is clear to see that with this network there is only one clear malicious actor who spreads a majority of the misinformation. <div id="forcelinks"> </div> <!--<div style="text-align:center"><div id="non-rumor-graph" style="display:inline"></div><div id="false-graph" style="display:inline"></div></div>',
     likes: 486,
     upVoted: false
    },
