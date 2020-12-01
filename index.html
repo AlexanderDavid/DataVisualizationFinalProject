@@ -45,14 +45,6 @@ import define from "https://api.observablehq.com/@alexanderdavid/clean-project.j
 (new Runtime).module(define, name => {
   if (name === "chart") return Inspector.into(".chart")();
 });  </script>
-  <script type="module">
-import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-import define from "https://api.observablehq.com/@mefowle/Twitter-Data-Animation.js";
-(new Runtime).module(define, name => {
-  if (name === "forcelinks") return Inspector.into(".forcelinks")();
-});  </script>
-
-
 
 
 </body>
