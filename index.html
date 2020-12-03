@@ -33,6 +33,9 @@
         </div>
       </div>
     </div>
+<div class="viewof-time"></div>
+<div class="forcelinks"></div>
+<div class="forcelinks_non_rumor"></div>
   </div>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js'></script>
@@ -46,6 +49,17 @@
     if (name === "chart") return Inspector.into(".chart")();
   });
   </script>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@alexanderdavid/twitter-data-animation.js?v=3";
+(new Runtime).module(define, name => {
+  if (name === "viewof time") return Inspector.into(".viewof-time")();
+  if (name === "forcelinks") return Inspector.into(".forcelinks")();
+  if (name === "forcelinks_non_rumor") return Inspector.into(".forcelinks_non_rumor")();
+  return ["update","update_non_rumor"].includes(name) || null;
+});
+</script>
 
 </body>
 </html>
