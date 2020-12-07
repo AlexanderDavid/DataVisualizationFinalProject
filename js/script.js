@@ -10,12 +10,12 @@ const tweets = [
     upVoted: false
    },
    {
-    name: 'Alex Day',
-    userImage: 'https://pbs.twimg.com/profile_images/1174730764375789573/LbaHHQnu_400x400.jpg',
-    handle: '@ProbablyAlexDay',
+     name: 'Megan Fowler',
+    userImage: 'https://pbs.twimg.com/profile_images/1216023025390424065/W50Dzo6u_400x400.jpg',
+    handle: '@mefowler',
     verified: true,
     timeLapsed: '7m',
-    description: 'We are using the Twitter15 <a href="#1">[1]</a> and Twitter16 <a href="#2">[2]</a> dataset as released by Ma et al. <a href="#3">[3]</a>. This dataset contains 2311 different tweet trees each centered on some root tweet with an average of 410 nodes and 415 edges. Each edges represents some interaction with the tweet via retweet or quote retweet and contains some value representing the time elapsed between the child and parent tweet. This dataset was created in order to perform machine learning in order to classify tweets as rumors or truth.',
+    description: 'We are using the Twitter15 <a href="#1">[1]</a> dataset as released by Ma et al. <a href="#3">[3]</a>. This dataset contains 1490 different tweet trees each centered on some root tweet with an average of 410 nodes and 415 edges. Each edges represents some interaction with the tweet via retweet or quote retweet and contains some value representing the time elapsed between the child and parent tweet. This dataset was created in order to perform machine learning in order to classify tweets as rumors or truth.',
     likes: 21,
     upVoted: false
    },
@@ -50,9 +50,9 @@ const tweets = [
     upVoted: false
    },
    {
-    name: 'Alex Day',
-    userImage: 'https://pbs.twimg.com/profile_images/1174730764375789573/LbaHHQnu_400x400.jpg',
-    handle: '@ProbablyAlexDay',
+    name: 'Xiaohong Zhang',
+    userImage: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/drizzy_twitter.png',
+    handle: '@xiaohoz',
     verified: true,
     timeLapsed: '30m',
     description: "Now it's your turn to try and categorize the following graphs. The graph that shows up will either be a Non-Rumor or a False tweet. Use the radio buttons below to categorize the tweet and then check your answer with the next button. Remember to compare the graphs to the labeled graphs above. <div><div class='graph-select'><div style='height: 500px' id='network-select-graph'></div> <div class='controls'> <div class='graph-input'> <div> <input type='radio' id='non-rumor' name='graph' value='Non-Rumor' checked> <label for='non-rumor'>Non-Rumor</label> </div> <div> <input type='radio' id='false' name='graph' value='False'> <label for='false-tweet'>False</label> </div></div> <div class='next-button '><button id='next' class='btn btn-primary'>Next</button></div></div></div></div>",
