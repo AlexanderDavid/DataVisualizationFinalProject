@@ -2,7 +2,7 @@
 
 G02
 
-Alex Day, Megan Folwer, Xiaohong Zhang
+Alex Day, Megan Fowler, Xiaohong Zhang
 
 A story of disinformation spread on Twitter. The actual website is at [https://alexanderdavid.github.io/DataVisualizationFinalProject/](https://alexanderdavid.github.io/DataVisualizationFinalProject/#1) (it doesn't work great on phones yet, sorry!).
 
